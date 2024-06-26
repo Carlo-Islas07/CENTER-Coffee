@@ -1,0 +1,77 @@
+/* Estilos generales */
+body {
+    background-image: url('https://wallpaperaccess.com/full/106815.jpg');
+    background-size: cover;
+    background-position: center; 
+    @media (max-width: 600px) {
+        body {
+            background-size: cover; /* Puede ajustar a 'contain' si quieres que toda la imagen se vea en pantallas pequeñas */
+        }
+    }
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#formulario-crear-cuenta {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #ecb179;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#formulario-crear-cuenta fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+#formulario-crear-cuenta legend {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#formulario-crear-cuenta label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: bold;
+}
+
+#formulario-crear-cuenta input[type="text"],
+#formulario-crear-cuenta input[type="number"],
+#formulario-crear-cuenta select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+#formulario-crear-cuenta input[type="submit"] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#formulario-crear-cuenta input[type="submit"]:hover {
+    background-color: #45a049;
+}

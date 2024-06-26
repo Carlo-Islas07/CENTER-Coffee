@@ -1,0 +1,443 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #cacaca;
+  font: 70%/160% "verdana", sans-serif;
+  color: #000000; /* PALABRAS */
+}
+
+#notas-container {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(240, 240, 240, 0.95); /* Color gris claro */
+  border: 2px solid #ccc;
+  border-radius: 10px; /* Esquinas redondeadas */
+  padding: 30px 20px;  /* 20px */
+  z-index: 1000;     /* z-index: 1 */
+  width: 30%; /* Anchura completa */
+  height: 40%; /* Altura completa */
+  overflow-y: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center; /* Centrar texto */
+  font-family: 'Arial Rounded MT Bold', sans-serif; /* Fuente estética */
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.nota {
+  position: relative;
+}
+
+.nota-close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: -5px; /* Ajustar la posición */
+  margin-right: -5px;
+}
+
+.nota-close:hover {
+  color: #f00;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nota-titulo {
+  font-size: 28px; /* Tamaño del título */
+  font-weight: bold;
+  margin-bottom: 10px; /* Espacio después del título */
+}
+
+.nota-contenido {
+  font-size: 20px; /* Tamaño del contenido */
+  line-height: 1.5; /* Espaciado entre líneas */
+}
+
+
+a {
+  color: #e9a33a /* TITULOS Y SUBTITULOS */
+}
+a:hover {
+  color: #ff7777;
+}
+
+p {
+  margin: 1em 0 1em 1em;
+  padding: 0;
+}
+
+.clear {
+  clear: both;
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 1em 0;
+  padding:0;
+}
+
+h1 {
+  font-size: 260%;
+  font-family: "georgia", serif;
+  font-weight: normal;
+}
+
+h2 {
+  font-size: 180%;
+  font-family: "georgia", serif;
+  font-weight: normal;
+}
+
+h3 {
+  font-size: 120%;
+  font-weight: bold;
+}
+
+ul, ol {
+  margin: 1em 0 1em 2em;
+  padding: 0;
+}
+
+/* ---- Layout ---- */
+#contenedor {
+  width: 100%;
+  margin: 0;
+}
+
+#cabecera {
+  width: 100%;
+  height: 190px;
+  margin: 0;
+  padding: 0;
+  background: url('Fondo_CAFE.png') no-repeat center center;
+  background-size: cover;
+  color: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#logo-container {
+  display: flex;
+  align-items: center;
+}
+
+#logo {
+  margin-right: 20px;
+  padding: 10px;
+  background-color: #6b5a50;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#logo a {
+  text-decoration: none;
+  color: #ff5900;
+}
+
+#logo:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#logo-frame {
+  background-color: #6b5a50; /* #ECDDD6 */
+  border-radius: 50%;
+  padding: 15px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#logo-frame:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#logo-image {
+  height: 140px;
+}
+
+#buscador {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-right: 20px;
+}
+
+#contenido {
+  padding: 20px;
+}
+
+#contenido {
+  width: 90%;
+  margin: 0 auto;
+  background: #ff9860;
+}
+
+#contenido #principal {
+  width: 100%;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
+  padding: 15px 80px 40 10px;
+  background: #FFF;
+}
+
+#contenido #secundario {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 0;
+  background: #ECDDD6;
+}
+
+.column {
+  width: 23%;
+}
+
+#secundario h3 {
+  background: #342923;
+  color: #FFF1E2;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+#sobremi img {
+  float: left;
+  margin: 8px 5px 0 0;
+}
+
+#sobremi p {
+  margin: 0;
+}
+
+#secundario ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#secundario li {
+  border-bottom: 1px solid #000000;
+}
+
+#secundario li a {
+  display: block;
+  padding: 5px;
+  text-decoration: none;
+  color: #333;
+  background: url("../imagenes/icono_elemento.gif") 8px no-repeat;
+  padding-left: 50px;
+}
+
+#secundario li a:hover {
+  background-color: #ff8800;
+  color: #ff0000;
+}
+
+#secundario li.seleccionado a {
+  background: #b69d8d url("../imagenes/icono_elemento_seleccionado.gif") 8px no-repeat;
+  font-weight: bold;
+}
+
+
+/* Estilo para el enlace de audio */
+#audioLink {
+  color: #007bff; /* Color del enlace */
+  text-decoration: none; /* Quitar subrayado */
+}
+
+/* Estilo para el modal del reproductor de audio */
+.modal {
+  display: none; /* Por defecto oculto */
+  position: fixed; /* Posicionado fijo en la ventana */
+  z-index: 1; /* Sobre todo */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Desplazamiento si es necesario */
+  background-color: rgba(0,0,0,0.7); /* Fondo oscuro */
+}
+
+/* Contenido del modal */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 10px;
+  position: relative;
+}
+
+/* Estilo para el botón de cerrar del modal */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+#menu {
+  background: #685846;
+  margin: 0 75px;
+  padding: 25px 0 0 0;
+}
+
+#menu ul {
+  margin: 0 25px;
+  padding: 0;
+  list-style: none;
+}
+
+#menu ul li {
+  margin: 0 47px 0 0;
+  padding: 0;
+  float: left;
+}
+
+#menu ul li a {
+  display: block;
+  position: relative;
+  padding: 5px 15px;
+  border: 0;
+  background: #342923;
+  color: #FFF1E2;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#menu ul li a:hover {
+  background: #342923;
+}
+
+#menu ul li.seleccionado a {
+  background: #FFF;
+  color: #000000;
+}
+
+/* ---- Articulos ---- */
+#contenido .articulo {
+  margin: 20px 0;
+  padding: 20px;
+  background: url("../imagenes/fondo_articulo.jpg") no-repeat;
+}
+
+#contenido .articulo h2 {
+  margin: 0 -20px;
+  padding: 10px;
+  background: #ffffff;
+  color: #192666;
+}
+
+#contenido .info {
+  margin: 10px 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #342923;
+  color: #000000;
+}
+
+#contenido .info a {
+  color: #ff0000;
+}
+#contenido .info a:hover {
+  color: #FF9000;
+}
+
+#contenido .info span.fecha {
+  background: url("../imagenes/icono_fecha.gif") 0 50% no-repeat;
+}
+#contenido .info span.categoria {
+  background: url("../imagenes/icono_categoria.gif") 0 50% no-repeat;
+  margin-left: 8px;
+}
+#contenido .info span.autor {
+  background: url("../imagenes/icono_autor.gif") 0 50% no-repeat;
+  margin-left: 8px;
+}
+#contenido .info span.comentarios {
+  background: url("../imagenes/icono_comentarios.gif") 0 50% no-repeat;
+  margin-left: 8px;
+}
+
+.clear {
+  clear: both;
+}
+
+/* ---- Estilo para los formatos de fecha ---- */
+#current_date {
+  background-color: #00264d;
+  color: #FFF;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  max-width: 300px;
+}
+
+/* ---- Pie de Página ---- */
+#pie {
+  width: 100%;
+  height: 190px;
+  margin: 0;
+  padding: 0;
+  background: url('Fondo_Pie.png') no-repeat center center;
+  background-size: cover;
+  color: #FFF;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+#pie p {
+  margin: 0;
+  position: absolute; /* Asegura que el elemento sea posicionado de manera absoluta */
+    bottom: 0;
+}
+
+#contador {
+  
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px;
+  font-size: 14px;
+  color: #FFF;
+}
+
+#fecha_formato {
+  position: absolute;
+  left: 20px;
+  bottom: 10px;
+  padding: 10px;
+  font-size: 14px;
+  color: #FFF;
+  background-color: #00264d;
+  border-radius: 10px;
+  margin-top: 20px;
+  max-width: 300px;
+}
+
+/* ---- Contenido Imágenes ---- */
+.contenido-img {
+  border-radius: 15px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.contenido-img:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}

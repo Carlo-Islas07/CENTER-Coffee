@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Cuenta en COFFEE CENTER</title>
+    <link rel="icon" href="/favicon-32x32.png" type="image/x-icon">
+    <link rel="icon" href="Imagenes/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/styles_crear_cuenta.css">
+    <script>
+        function mostrarAviso(event) {
+            event.preventDefault(); // Evita el envío del formulario
+            alert('Ya eres parte de la familia CENTER');
+            window.location.href = 'index.html'; // Redirige a la página principal
+        }
+    </script>
+</head>
+<body>
+    <div id="formulario-crear-cuenta">
+        <form onsubmit="mostrarAviso(event)" action="procesar_crear_cuenta.php" method="post">
+            <fieldset>
+                <legend>Crear Cuenta en COFFEE CENTER</legend>
+
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required />
+
+                <label for="apellidos">Apellidos:</label>
+                <input type="text" id="apellidos" name="apellidos" required />
+
+                <label for="edad">Edad:</label>
+                <input type="number" id="edad" name="edad" required min="1" max="120" />
+
+                <label for="genero">Género:</label>
+                <select id="genero" name="genero" required>
+                    <option value="hombre">Hombre</option>
+                    <option value="mujer">Mujer</option>
+                </select>
+
+                <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+                <select id="año" name="año" required>
+                    <option value="">Año</option>
+                    <!-- Opciones de año -->
+                    <script>
+                        const year = new Date().getFullYear();
+                        for (let i = year; i >= 1900; i--) {
+                            document.write('<option value="' + i + '">' + i + '</option>');
+                        }
+                    </script>
+                </select>
+                <select id="mes" name="mes" required>
+                    <option value="">Mes</option>
+                    <!-- Opciones de mes -->
+                    <option value="01">Enero</option>
+                    <option value="02">Febrero</option>
+                    <option value="03">Marzo</option>
+                    <option value="04">Abril</option>
+                    <option value="05">Mayo</option>
+                    <option value="06">Junio</option>
+                    <option value="07">Julio</option>
+                    <option value="08">Agosto</option>
+                    <option value="09">Septiembre</option>
+                    <option value="10">Octubre</option>
+                    <option value="11">Noviembre</option>
+                    <option value="12">Diciembre</option>
+                </select>
+                <select id="dia" name="dia" required>
+                    <option value="">Día</option>
+                    <!-- Opciones de día -->
+                    <script>
+                        for (let i = 1; i <= 31; i++) {
+                            document.write('<option value="' + i + '">' + i + '</option>');
+                        }
+                    </script>
+                </select>
+
+                <label for="cafe_favorito">Café Favorito:</label>
+                <input type="text" id="cafe_favorito" name="cafe_favorito" required />
+
+                <input type="submit" value="Crear Cuenta" />
+            </fieldset>
+        </form>
+    </div> 
+</body>
+</html>
